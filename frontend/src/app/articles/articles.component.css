@@ -1,0 +1,31 @@
+.popular-articles {
+	background-color: #4877D3;
+	background: linear-gradient(135deg, rgb(35, 85, 185) 0%,rgba(72, 119, 211, 0.55) 100%);
+	color: aliceblue;
+}
+
+.popular-articles-section {
+	padding: 150px 0 75px;
+	font-size: 28px;
+}
+
+.title-section__slogan {
+	width: 35%;
+}
+
+.title-section__text {
+	margin-top: 50px;
+	width: 40%;
+
+	font-size: 20px;
+	font-weight: 200;
+}
+
+.main-articles {
+  background-color: #f9f9f9;
+	color: aliceblue;
+}
+
+.main-articles-section {
+  padding: 45px 0 75px;
+}

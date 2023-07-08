@@ -1,24 +1,25 @@
 .main {
-	/* height: 600px; */
 	background-color: #4877D3;
 	background: linear-gradient(135deg, rgb(35, 85, 185) 0%,rgba(72, 119, 211, 0.55) 100%);
-
 	color: aliceblue;
 }
 
 .title-section {
 	padding: 150px 0 75px;
-	font-size: 28px;
 }
 
 .title-section__slogan {
 	width: 35%;
+	font-size: 32px;
+	line-height: 1.07;
+	font-weight: 200;
 }
 
 .title-section__text {
 	margin-top: 50px;
 	width: 40%;
 
-	font-size: 20px;
+	font-size: 16px;
+	line-height: 1.15;
 	font-weight: 200;
 }
