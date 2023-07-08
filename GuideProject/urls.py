@@ -17,6 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from reviews.views import ReviewAPIView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/v1/reviewlist/', ReviewAPIView.as_view()),
+    path('api/v1/reviewlist/<int:pk>/', ReviewAPIView.as_view()),
 ]
