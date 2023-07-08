@@ -1,7 +1,5 @@
-from django.forms import model_to_dict
-from django.shortcuts import render
 from rest_framework.response import Response
-from  rest_framework.views import APIView
+from rest_framework.views import APIView
 from .models import Review
 from .serializers import ReviewSerializer
 
@@ -38,4 +36,4 @@ class ReviewAPIView(APIView):
             return Response({'error': 'Method PUT does not exists'})
         review = Review.objects.get(pk=pk)
         review.delete()
-        return Response({'reviews': 'delete review ' + str(pk)})
+        return Response({'reviews': 'delete review  ' + str(pk)})

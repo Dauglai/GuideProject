@@ -49,7 +49,7 @@ class Review(models.Model):
             MaxValueValidator(5),
             MinValueValidator(1)
         ])
-    explanation = models.CharField('Развернутая оценка', max_length=1000, null=True, blank=True)
+    explanation = models.TextField('Развернутая оценка', max_length=1000, null=True, blank=True)
     Course = models.ForeignKey('Course', on_delete=models.CASCADE, null=True)
 
     def __str__(self):
