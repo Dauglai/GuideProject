@@ -1,0 +1,15 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root{
+  --content-width: min(1600px, 1400px, 90vw);
+}
+
+.content-wrapper{
+  margin: 0 auto;
+  position: relative;
+  max-width: var(--content-width);
+}
