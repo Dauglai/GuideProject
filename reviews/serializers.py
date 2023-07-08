@@ -1,3 +1,4 @@
+from django.core.validators import MaxValueValidator, MinValueValidator
 from rest_framework import serializers
 from .models import Review
 
@@ -5,4 +6,4 @@ from .models import Review
 class ReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Review
-        fields = ('overall_score', 'interest', 'benefit', 'understanding')
+        fields = '__all__'
