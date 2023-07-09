@@ -10,7 +10,7 @@
     <div class="content-wrapper main-articles-section">
       <app-search-articles (searchEvent$)="applySearch($event)"></app-search-articles>
     </div>
-    <div>
+    <div class="content-wrapper articles-section">
       <ng-container *ngFor="let article of articles | filter:searchText">
         <app-article [article]="article" (click)="selectArticle(article)"></app-article>
       </ng-container>
@@ -20,3 +20,4 @@
     </div>
   </div>
 </div>
+<app-dialog-window-article *ngIf="isOpen" (isOpen)="manageDialog($event)" [article]="article"></app-dialog-window-article>

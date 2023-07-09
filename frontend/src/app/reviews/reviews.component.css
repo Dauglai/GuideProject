@@ -8,3 +8,10 @@
 	padding: 150px 0 75px;
 	font-size: 28px;
 }
+
+.teachers {
+	display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  color: black;
+}

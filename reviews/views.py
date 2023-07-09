@@ -19,7 +19,6 @@ class ReviewAPIView(APIView):
         pk = kwargs.get('pk', None)
         if not pk:
             return Response({'error': 'Method PUT does not exists'})
-
         try:
             instance= Review.objects.get(pk=pk)
         except:

@@ -8,3 +8,37 @@
 	padding: 150px 0 75px;
 	font-size: 28px;
 }
+
+.ya-map {
+  position: relative;
+  padding-bottom: 75px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: calc(100vh - 150px);
+}
+
+.content {
+  padding-top: 50px;
+}
+
+.content__heading {
+  font-size: 28px;
+  font-weight: 100;
+}
+
+.content__text {
+  margin-top: 30px;
+  font-size: 16px;
+}
+
+.container-map {
+  max-height: 500px;
+  max-width: 550px;
+
+  min-height: 300px;
+  min-width: 300px;
+
+	width: 40%;
+	height: 100%;
+}

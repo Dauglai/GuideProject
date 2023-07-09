@@ -2,7 +2,11 @@
 <div class="popular-reviews">
   <div class="content-wrapper">
     <div class="popular-reviews-section">
-
+    </div>
+    <div class="teachers">      
+      <div *ngFor="let review of reviews">
+        {{review.overall_score}}
+      </div>
     </div>
   </div>
 </div>

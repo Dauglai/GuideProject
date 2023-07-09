@@ -1,3 +1,19 @@
-* {
-    color:black;
+.article {
+  color:black;
+  background-color: white;
+  box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.15);
+  /* width: 100%; */
+
+  padding: 10px 20px 20px 20px;
+  border-radius: 7px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+
+.article__title {
+  min-width: 150px;
+  width: 15vw;
+  max-width: 250px;
 }

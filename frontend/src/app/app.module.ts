@@ -18,8 +18,16 @@ import { PopularArticlesComponent } from './popular-articles/popular-articles.co
 import { SearchArticlesComponent } from './search-articles/search-articles.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { ArticleComponent } from './article/article.component';
+import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { DialogWindowArticleComponent } from './dialog-window-article/dialog-window-article.component';
+import { AngularYandexMapsModule, YaConfig  } from "angular8-yandex-maps";
 
 // import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll';
+
+const mapConfig: YaConfig = {
+  apikey: 'f0383e10-bb41-4879-a742-b5911e220653',
+  lang: 'ru_RU',
+};
 
 const routes: Routes = [
   {path: 'main', component: MainComponent},
@@ -42,9 +50,11 @@ const routes: Routes = [
     SearchArticlesComponent,
     FilterPipe,
     ArticleComponent,
+    DialogWindowArticleComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     FormsModule,
     // NgxHideOnScrollModule,
     RouterModule.forRoot(routes),
@@ -54,6 +64,7 @@ const routes: Routes = [
     TuiAlertModule,
     ReactiveFormsModule,
     TuiInputModule,
+    AngularYandexMapsModule.forRoot(mapConfig),
 ],
   providers: [{provide: TUI_SANITIZER, useClass: NgDompurifySanitizer}, FilterPipe],
   bootstrap: [AppComponent]
