@@ -16,6 +16,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { PopularArticlesComponent } from './popular-articles/popular-articles.component';
 import { SearchArticlesComponent } from './search-articles/search-articles.component';
+import { FilterPipe } from './pipes/filter.pipe';
+import { ArticleComponent } from './article/article.component';
 
 // import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll';
 
@@ -38,6 +40,8 @@ const routes: Routes = [
     HeaderComponent,
     PopularArticlesComponent,
     SearchArticlesComponent,
+    FilterPipe,
+    ArticleComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +55,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     TuiInputModule,
 ],
-  providers: [{provide: TUI_SANITIZER, useClass: NgDompurifySanitizer}],
+  providers: [{provide: TUI_SANITIZER, useClass: NgDompurifySanitizer}, FilterPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

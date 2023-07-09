@@ -8,7 +8,15 @@
 <div>
   <div class="main-articles">
     <div class="content-wrapper main-articles-section">
-      <app-search-articles></app-search-articles>
+      <app-search-articles (searchEvent$)="applySearch($event)"></app-search-articles>
+    </div>
+    <div>
+      <ng-container *ngFor="let article of articles | filter:searchText">
+        <app-article [article]="article" (click)="selectArticle(article)"></app-article>
+      </ng-container>
+      <!-- <div class="pagination" *ngIf="length > 1">
+        <tui-pagination [length]="length" [index]="index" (indexChange)="goToPage($event)"></tui-pagination>
+      </div> -->
     </div>
   </div>
 </div>
