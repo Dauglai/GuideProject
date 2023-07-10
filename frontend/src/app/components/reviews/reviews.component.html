@@ -1,0 +1,26 @@
+<app-header></app-header>
+<div class="popular-reviews">
+  <div class="content-wrapper">
+    <div class="popular-reviews-section">
+    </div>
+  </div>
+</div>
+<div class="courses">
+  <div class="content-wrapper search-section ">
+    <div style="width: 70%;">
+      <app-search (searchEvent$)="applySearch($event)"></app-search>
+    </div>
+    <button tuiButton type="button" appearance="primary"
+    class="tui-space_right-3 tui-space_bottom-3 btn-create">
+      Добавить отзыв
+    </button>
+  </div>
+  <div class="content-wrapper courses-section">
+    <div *ngFor="let course of courses | searchTeacher:searchText">
+      <!-- name: {{course.name}} is_online: {{course.is_online}} description: {{course.description}} difficulty: {{course.difficulty}} -->
+      <div class="course">
+        <h4 class="course__title">{{course.name}}</h4>
+      </div>
+    </div>
+  </div>      
+</div>

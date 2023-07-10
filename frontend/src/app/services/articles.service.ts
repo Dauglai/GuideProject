@@ -5,15 +5,15 @@ import {forkJoin, Observable} from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
-export class ReviewsService {
+export class ArticlesService {
 
   constructor(private http: HttpClient) { }
 
   private apiUrl = 'http://127.0.0.1:8000/';
-  private apiReviews = this.apiUrl + 'api/v1/review/';
+  private apiArticle = this.apiUrl + 'api/v1/article/';
 
-  getReviews(): Observable<any[]> {
-    console.log(this.apiReviews)
-    return this.http.get<any[]>(this.apiReviews);
+  getArticles(): Observable<any[]> {
+    console.log(this.apiArticle)
+    return this.http.get<any[]>(this.apiArticle);
   }
 }

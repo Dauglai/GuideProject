@@ -1,0 +1,77 @@
+.popular-reviews {
+	background-color: #4877D3;
+	background: linear-gradient(135deg, rgb(35, 85, 185) 0%,rgba(72, 119, 211, 0.55) 100%);
+	color: aliceblue;
+}
+
+.popular-reviews-section {
+	padding: 150px 0 75px;
+	font-size: 28px;
+}
+
+.courses {
+	/* display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: left; */
+  color: black;
+}
+
+.search-section {
+  padding: 45px 0 75px;
+  position: relative;
+
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.search-input {
+  width: 200px !important;
+}
+
+.btn-create {
+  margin-right: 0;
+  justify-self: right;
+}
+
+.courses-section {
+  padding: 45px 0 75px;
+  position: relative;
+  width: 100%;
+	display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  padding-bottom: 75px;
+
+  justify-content: space-evenly;
+  /* justify-content: space-between; */
+  gap: 30px;
+}
+
+.course {
+  color:black;
+  background-color: white;
+  box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.15);
+  /* width: 100%; */
+
+  padding: 20px 35px 40px 35px;
+  height: 200px;
+  border-radius: 7px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.course__title {
+  min-width: 150px;
+  width: 15vw;
+  max-width: 250px;
+  font-size: 18px;
+  font-weight: 200;
+}
