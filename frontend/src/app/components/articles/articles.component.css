@@ -29,6 +29,8 @@
 .main-articles-section {
   padding: 45px 0 75px;
   position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 .articles-section {

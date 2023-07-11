@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SearchTeacherPipe implements PipeTransform {
 
-  transform(teachers: any[], searchText: string): any[] {
+  transform(teachers: any[], searchText: string, ...args: any[]): any[] {
     if (!teachers){
       return [];
     }
@@ -13,7 +13,7 @@ export class SearchTeacherPipe implements PipeTransform {
     if (searchText){
       searchText = searchText.toLocaleLowerCase();
       result = result.filter((teachers: any) =>{
-        console.log(teachers.name); 
+        console.log(args[0]); 
         return `${teachers.name}`.toLocaleLowerCase().includes(searchText);
       });
     }   

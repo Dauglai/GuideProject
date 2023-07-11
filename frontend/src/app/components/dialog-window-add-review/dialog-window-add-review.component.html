@@ -1,0 +1,71 @@
+<tui-root>
+  <div class="wrapper"></div>
+  <div class="dialog__container">
+    <div class="dialog__container_outer">
+      <div class="dialog__container_inner">
+        <!-- <h2 class="dialog__title">Отзыв</h2> -->
+        <p></p>
+        <form [formGroup]="reviewForm" novalidate (ngSubmit)='submit()'>
+          <label class="adding__label">Название курса</label>
+          <tui-input tuiTextfieldSize="l" class="adding__input" tuiTextfieldSize="s"
+                     [tuiTextfieldLabelOutside]="true" formControlName="course">
+            Информационные технологии и сервисы
+            <input type="text" name="course" formControlName="course" tuiTextfield/>
+          </tui-input>
+  
+          <label class="adding__label">Описание</label>
+          <tui-input tuiTextfieldSize="l" class="adding__input" tuiTextfieldSize="s"
+                      [tuiTextfieldLabelOutside]="true" formControlName="explanation">
+            Отличный курс
+            <input type="text" name="explanation" formControlName="explanation" tuiTextfield/>
+          </tui-input>
+          
+          <div class="numeric-field">
+            <label class="adding__label">Общая &#13;&#10; оценка курса</label>
+            <tui-input tuiTextfieldSize="l" class="numeric-field-adding__input" tuiTextfieldSize="s"
+                      [tuiTextfieldLabelOutside]="true" formControlName="overall_score">
+              4
+              <input type="number" name="overall_score" formControlName="overall_score" tuiTextfield/>
+            </tui-input>
+          </div>
+          
+          <div class="numeric-field">
+            <label class="adding__label">Интерес к предмету</label>
+            <tui-input tuiTextfieldSize="l" class="numeric-field-adding__input" tuiTextfieldSize="s"
+                      [tuiTextfieldLabelOutside]="true" formControlName="interest">
+              4
+              <input type="number" name="interest" formControlName="interest" tuiTextfield/>
+            </tui-input>
+          </div>
+  
+          <!-- <label class="adding__label">Польза от предмета</label>
+          <tui-input tuiTextfieldSize="l" class="adding__input" tuiTextfieldSize="s"
+                     [tuiTextfieldLabelOutside]="true" formControlName="benefit">
+            5
+            <input type="number" name="benefit" formControlName="benefit" tuiTextfield/>
+          </tui-input> -->
+          
+          <div class="numeric-field">
+            <label class="adding__label">Общедоступность курса</label>
+            <tui-input tuiTextfieldSize="l" class="numeric-field-adding__input" tuiTextfieldSize="s"
+                      [tuiTextfieldLabelOutside]="true" formControlName="understanding">
+              5
+              <input type="number" name="understanding" formControlName="understanding" tuiTextfield/>
+            </tui-input>
+          </div>
+        </form>
+        <div class="dialog__buttons">
+          <button tuiButton type="button" appearance="primary" (click)="submit()"
+          class="tui-space_right-3 tui-space_bottom-3" size="s">
+            Добавить
+          </button>
+          <button tuiButton type="button" appearance="outline"
+                  class="tui-space_right-3 tui-space_bottom-3 dialog__cancel" size="s"
+                  (click)="manageDialog()">
+            Закрыть
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</tui-root>  

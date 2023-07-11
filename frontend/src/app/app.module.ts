@@ -1,5 +1,5 @@
 import { NgDompurifySanitizer } from "@tinkoff/ng-dompurify";
-import { TuiRootModule, TuiDialogModule, TuiAlertModule, TUI_SANITIZER, TuiButtonModule } from "@taiga-ui/core";
+import { TuiRootModule, TuiDialogModule, TuiAlertModule, TUI_SANITIZER, TuiButtonModule, TuiLabelModule, TuiDataListModule } from "@taiga-ui/core";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; 
@@ -23,6 +23,11 @@ import { DialogWindowArticleComponent } from './components/dialog-window-article
 import { AngularYandexMapsModule, YaConfig  } from "angular8-yandex-maps";
 import { SaveHtmlPipe } from './pipes/save-html.pipe';
 import { SearchTeacherPipe } from './pipes/search-teacher.pipe';
+import {TuiTextfieldControllerModule} from '@taiga-ui/core';
+import {TuiDataListWrapperModule, TuiSelectModule} from '@taiga-ui/kit';
+import {TuiPaginationModule} from '@taiga-ui/kit';
+import { DialogWindowAddReviewComponent } from './components/dialog-window-add-review/dialog-window-add-review.component';
+import { DialogWindowCourseComponent } from './components/dialog-window-course/dialog-window-course.component';
 
 // import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll';
 
@@ -55,6 +60,8 @@ const routes: Routes = [
     DialogWindowArticleComponent,
     SaveHtmlPipe,
     SearchTeacherPipe,
+    DialogWindowAddReviewComponent,
+    DialogWindowCourseComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,6 +77,12 @@ const routes: Routes = [
     TuiInputModule,
     TuiButtonModule,
     AngularYandexMapsModule.forRoot(mapConfig),
+    TuiSelectModule,
+    TuiDataListModule,
+    TuiDataListWrapperModule,
+    TuiPaginationModule,
+    TuiLabelModule,
+    TuiTextfieldControllerModule,
 ],
   providers: [{provide: TUI_SANITIZER, useClass: NgDompurifySanitizer}, FilterPipe, SearchTeacherPipe],
   bootstrap: [AppComponent]

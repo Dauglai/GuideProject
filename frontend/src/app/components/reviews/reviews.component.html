@@ -6,21 +6,32 @@
   </div>
 </div>
 <div class="courses">
-  <div class="content-wrapper search-section ">
-    <div style="width: 70%;">
+  <div class="content-wrapper search-section">
+    <div class="search-section__container">
       <app-search (searchEvent$)="applySearch($event)"></app-search>
+      <tui-select  tuiTextfieldSize="m" class="tui-space_vertical-4" [formControl]="courseNumber" class="select-course">
+        Курс
+        <input tuiTextfield placeholder="Выберите курс"/>
+        <tui-data-list-wrapper *tuiDataList [items]="items"></tui-data-list-wrapper>
+      </tui-select>
     </div>
-    <button tuiButton type="button" appearance="primary"
+    <button tuiButton type="button" appearance="primary" (click)="showDialogFormReview()"
     class="tui-space_right-3 tui-space_bottom-3 btn-create">
       Добавить отзыв
     </button>
   </div>
   <div class="content-wrapper courses-section">
-    <div *ngFor="let course of courses | searchTeacher:searchText">
+    <div *ngFor="let course of courses | searchTeacher:searchText:courseNumber">
       <!-- name: {{course.name}} is_online: {{course.is_online}} description: {{course.description}} difficulty: {{course.difficulty}} -->
-      <div class="course">
+      <div class="course" (click)="selectCourse(course)">
         <h4 class="course__title">{{course.name}}</h4>
+        <div class="course__number">{{course.course_number}} курс</div>
       </div>
+    </div>
+    <div class="pagination" *ngIf="length > 1">
+      <tui-pagination [length]="length" [index]="index" (indexChange)="goToPage($event)"></tui-pagination>
     </div>
   </div>      
 </div>
+<app-dialog-window-course *ngIf="isOpenCourse" (isOpen)="manageDialogCourse($event)" [course]="course"></app-dialog-window-course>
+<app-dialog-window-add-review *ngIf="isOpenFromReview" (isOpen)="manageDialogFormReview($event)"></app-dialog-window-add-review>

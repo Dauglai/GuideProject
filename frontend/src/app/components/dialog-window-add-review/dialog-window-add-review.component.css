@@ -1,0 +1,98 @@
+:host {
+  --width-dialog-window: 30vw;
+  --height-dialog-window: 70vh;
+}
+
+.wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  overflow-x: hidden;
+}
+
+.dialog__container_outer {
+  position: fixed;
+  top: calc((100% - var(--height-dialog-window)) / 2);
+  left: calc((100% - var(--width-dialog-window)) / 2);
+
+  background: #fff;
+  border-radius: 20px;
+  z-index: 10000;
+}
+
+.dialog__container_inner {
+  position: relative;
+  overflow: auto;
+
+  width: var(--width-dialog-window);
+  height: var(--height-dialog-window);
+
+  min-width: 340px;
+  min-height: 330px;
+
+  display: flex;
+  flex-direction: column;
+  /* padding: 40px 60px 40px 60px; */
+  padding: 40px 60px 40px 60px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.dialog__title {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+
+  border-left: 4px solid #526ED3;
+  padding-left: 10px;
+  margin-bottom: 20px;
+  display: inline-block;
+  width: 100%;
+}
+
+.dialog__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.adding__label {
+  font-size: 1em;
+  width: 40%;
+}
+
+.adding__input {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.numeric-field {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+
+.numeric-field-adding__input {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  width: 30%;
+}
+
+.dialog__buttons {
+  position: relative;
+  padding-top: 20px;
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.dialog__add {
+}
+
+.dialog__cancel {
+}
