@@ -18,18 +18,22 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 
-from articles.views import ArticleViewSet
-from reviews.views import ReviewViewSet
+from articles.views import ArticleViewSet, TopicViewSet
+from reviews.views import ReviewViewSet, CourseViewSet
 
 
 router = routers.SimpleRouter()
 router.register(r'review', ReviewViewSet)
 router.register(r'article', ArticleViewSet)
+router.register(r'course', CourseViewSet)
+router.register(r'topic', TopicViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include(router.urls)), #http://127.0.0.1:8000/api/v1/review/
                                            #http://127.0.0.1:8000/api/v1/article/
+                                           # http://127.0.0.1:8000/api/v1/course/
+                                           # http://127.0.0.1:8000/api/v1/topic/
 
 
 #    path('api/v1/reviewlist/', ReviewViewSet.as_view({'get': 'list'})),
