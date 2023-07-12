@@ -4,7 +4,6 @@ from django.db import models
 
 class Teacher(models.Model):
     full_name = models.CharField('ФИО', max_length=100)
-    course = models.ManyToManyField('Course', null=True)
 
     def __str__(self):
         return self.full_name
@@ -15,6 +14,14 @@ class Course(models.Model):
     is_online = models.BooleanField(default=True)
     description = models.TextField(max_length=1000, null=True, blank=True)
     difficulty = models.PositiveIntegerField('Сложность')
+    teacher = models.ManyToManyField('Teacher')
+    number_course = models.PositiveIntegerField(
+        'Общая оценка',
+        default=1,
+        validators=[
+            MaxValueValidator(4),
+            MinValueValidator(1)
+        ])
 
     def __str__(self):
         return self.name
@@ -50,8 +57,8 @@ class Review(models.Model):
             MinValueValidator(1)
         ])
     explanation = models.TextField('Развернутая оценка', max_length=1000, null=True, blank=True)
-    Course = models.ForeignKey('Course', on_delete=models.CASCADE, null=True)
+    course = models.ForeignKey('Course', on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'Отзыв на курс "{self.Course.name}"'
+        return self.course.name
 
