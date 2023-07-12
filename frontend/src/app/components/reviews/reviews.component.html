@@ -21,17 +21,17 @@
     </button>
   </div>
   <div class="content-wrapper courses-section">
-    <div *ngFor="let course of courses | searchTeacher:searchText:courseNumber">
+    <div *ngFor="let course of courses | searchTeacher:searchText:courseNumber | pagination:itemsPerPage:index">
       <!-- name: {{course.name}} is_online: {{course.is_online}} description: {{course.description}} difficulty: {{course.difficulty}} -->
       <div class="course" (click)="selectCourse(course)">
         <h4 class="course__title">{{course.name}}</h4>
         <div class="course__number">{{course.course_number}} курс</div>
       </div>
     </div>
-    <div class="pagination" *ngIf="length > 1">
-      <tui-pagination [length]="length" [index]="index" (indexChange)="goToPage($event)"></tui-pagination>
-    </div>
-  </div>      
+  </div>  
+  <div class="pagination content-wrapper" *ngIf="length > 1">
+    <tui-pagination [length]="length" [index]="index" (indexChange)="goToPage($event)"></tui-pagination>
+  </div>    
 </div>
 <app-dialog-window-course *ngIf="isOpenCourse" (isOpen)="manageDialogCourse($event)" [course]="course"></app-dialog-window-course>
 <app-dialog-window-add-review *ngIf="isOpenFromReview" (isOpen)="manageDialogFormReview($event)"></app-dialog-window-add-review>

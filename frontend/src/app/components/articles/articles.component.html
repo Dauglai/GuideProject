@@ -11,12 +11,15 @@
       <app-search (searchEvent$)="applySearch($event)"></app-search>
     </div>
     <div class="content-wrapper articles-section">
-      <ng-container *ngFor="let article of articles | filter:searchText">
-        <app-article [article]="article" (click)="selectArticle(article)"></app-article>
+      <ng-container *ngFor="let article of articles | filter:searchText | pagination:itemsPerPage:index">
+        <div class="article" (click)="selectArticle(article)">
+          <h4 class="article__title">{{article.name}}</h4>
+          <p class="article__text" [innerHTML]="article.text | saveHtml"></p>
+        </div>
       </ng-container>
-      <!-- <div class="pagination" *ngIf="length > 1">
-        <tui-pagination [length]="length" [index]="index" (indexChange)="goToPage($event)"></tui-pagination>
-      </div> -->
+    </div>
+    <div class="pagination" *ngIf="length > 1">
+      <tui-pagination [length]="length" [index]="index" (indexChange)="goToPage($event)"></tui-pagination>
     </div>
   </div>
 </div>

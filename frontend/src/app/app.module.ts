@@ -28,6 +28,7 @@ import {TuiDataListWrapperModule, TuiSelectModule} from '@taiga-ui/kit';
 import {TuiPaginationModule} from '@taiga-ui/kit';
 import { DialogWindowAddReviewComponent } from './components/dialog-window-add-review/dialog-window-add-review.component';
 import { DialogWindowCourseComponent } from './components/dialog-window-course/dialog-window-course.component';
+import { PaginationPipe } from './pipes/pagination.pipe';
 
 // import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll';
 
@@ -40,7 +41,9 @@ const routes: Routes = [
   {path: 'main', component: MainComponent},
   {path: 'reviews', component: ReviewsComponent},
   {path: 'map', component: MapComponent},
-  {path: 'articles', component: ArticlesComponent},
+  {path: 'articles', component: ArticlesComponent, children: [
+    {path: 'article/:id', component: ArticleComponent}
+  ]},
   {path: 'contacts', component: MainComponent},
   {path: '**', redirectTo: 'main'},
 ]
@@ -62,12 +65,12 @@ const routes: Routes = [
     SearchTeacherPipe,
     DialogWindowAddReviewComponent,
     DialogWindowCourseComponent,
+    PaginationPipe,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    // NgxHideOnScrollModule,
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
     TuiRootModule,
