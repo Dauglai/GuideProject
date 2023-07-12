@@ -20,6 +20,7 @@ from rest_framework import routers
 
 from articles.views import ArticleViewSet, TopicViewSet
 from reviews.views import ReviewViewSet, CourseViewSet
+from main.views import VKNewsAPIView
 
 
 router = routers.SimpleRouter()
@@ -30,6 +31,7 @@ router.register(r'topic', TopicViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/v1/main/', VKNewsAPIView.as_view()),
     path('api/v1/', include(router.urls)), #http://127.0.0.1:8000/api/v1/review/
                                            #http://127.0.0.1:8000/api/v1/article/
                                            # http://127.0.0.1:8000/api/v1/course/
