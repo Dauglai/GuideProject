@@ -3,8 +3,6 @@
   <div class="dialog__container">
     <div class="dialog__container_outer">
       <div class="dialog__container_inner">
-        <!-- <h2 class="dialog__title">Отзыв</h2> -->
-        <p></p>
         <form [formGroup]="reviewForm" novalidate (ngSubmit)='submit()'>
           <label class="adding__label">Название курса</label>
           <tui-input tuiTextfieldSize="l" class="adding__input" tuiTextfieldSize="s"
@@ -13,7 +11,7 @@
             <input type="text" name="course" formControlName="course" tuiTextfield/>
           </tui-input>
   
-          <label class="adding__label">Описание</label>
+          <label class="adding__label">Развернутый отзыв</label>
           <tui-input tuiTextfieldSize="l" class="adding__input" tuiTextfieldSize="s"
                       [tuiTextfieldLabelOutside]="true" formControlName="explanation">
             Отличный курс

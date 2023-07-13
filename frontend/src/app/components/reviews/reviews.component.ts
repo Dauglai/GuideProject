@@ -15,7 +15,7 @@ export class ReviewsComponent implements OnInit {
 
   protected length: number = 1;
   protected index: number = 0;
-  protected itemsPerPage: number = 8;
+  protected itemsPerPage: number = 12;
 
   public isOpenCourse = false;
   public isOpenFromReview = false;
@@ -46,6 +46,14 @@ export class ReviewsComponent implements OnInit {
   course_number: 1},
     {name: 'Информационные технологии и сервисы', is_online: true, description: 'text2', difficulty: 5,
   course_number: 1},
+  {name: 'Основы проектной деятельности', is_online: true, description: 'text1', difficulty: 3,
+  course_number: 1},
+    {name: 'Информационные технологии и сервисы', is_online: true, description: 'text2', difficulty: 5,
+  course_number: 1},
+    {name: 'Основы проектной деятельности', is_online: true, description: 'text1', difficulty: 3,
+  course_number: 1},
+    {name: 'Информационные технологии и сервисы', is_online: true, description: 'text2', difficulty: 5,
+  course_number: 1},
   ] 
 
   items = [
@@ -68,7 +76,7 @@ export class ReviewsComponent implements OnInit {
   selectCourse(course: any) {    
     this.course = course;
     this.showDialogCourse();
-}
+  }
 
   public showDialogCourse() {
     this.isOpenCourse = true;
@@ -86,12 +94,12 @@ export class ReviewsComponent implements OnInit {
     this.isOpenFromReview = false;
   }
 
-
   getReviews(): void {
     this.reviewsService.getReviews().subscribe(
       (data: any) => {
         console.log(data);
         this.reviews = data;
+        this.updatePaginationPages();
       },
       (error: any) => {
         console.log(error);
@@ -105,14 +113,14 @@ export class ReviewsComponent implements OnInit {
   }
 
   updatePaginationPages(): void {
-      const searchedItems: any[] = this.searchTeacher.transform(
-        this.courses,
-        this.searchText,
-        this.courseNumber,
-      //   this.searchTags,
-      );
-      this.length = Math.ceil(searchedItems.length / this.itemsPerPage);
-      this.index = 0;
+    const searchedItems: any[] = this.searchTeacher.transform(
+      this.courses,
+      this.searchText,
+      this.courseNumber,
+    //   this.searchTags,
+    );
+    this.length = Math.ceil(searchedItems.length / this.itemsPerPage);
+    this.index = 0;
   }
 
   goToPage(index: number): void {

@@ -19,56 +19,65 @@ export class ArticlesComponent implements OnInit{
     //     {id: 6, title: 'test12', text: 'text12'}
     // ];
     protected article: {} = {};
+
     protected searchText: string = '';
     protected length: number = 1;
     protected index: number = 0;
-    protected itemsPerPage: number = 5;
+    protected itemsPerPage: number = 8;
+
     public isOpen = false;
 
     constructor( private router: Router, private filterPipe: FilterPipe, private articlesService: ArticlesService ) { }
 
     ngOnInit(): void {
-        this.getArticles();
+      this.getArticles();
+      this.updatePaginationPages();
     }
 
     public showDialog() {
-        this.isOpen = true;
+      this.isOpen = true;
     }
 
     protected manageDialog(isOpen: boolean) {
-        this.isOpen = false;
+      this.isOpen = false;
     }
 
     getArticles(): void {
-        this.articlesService.getArticles().subscribe(
-          (data: any) => {
-            console.log(data);
-            this.articles = data;
-          },
-          (error: any) => {
-            console.log(error);
-          }
-        )
-      }
+      this.articlesService.getArticles().subscribe(
+        (data: any) => {
+          console.log(data);
+          this.articles = data;
+          this.updatePaginationPages();
+        },
+        (error: any) => {
+          console.log(error);
+        }
+      )
+    }
 
     selectArticle(article: any) {    
-        this.article = article;  
-        // this.router.navigate(['article/', article.id]);
-        this.showDialog();
+      this.article = article;  
+      console.log(article)
+      this.router.navigate([`articles/article/`, article.id]);
     }
 
     applySearch(value: string): void {
-        this.searchText = value;
-        this.updatePaginationPages();
+      this.searchText = value;
+      this.updatePaginationPages();
     }
 
     updatePaginationPages(): void {
-        const searchedItems: any[] = this.filterPipe.transform(
-          this.articles,
-          this.searchText,
-        //   this.searchTags,
-        );
-        this.length = Math.ceil(searchedItems.length / this.itemsPerPage);
-        this.index = 0;
+      const searchedItems: any[] = this.filterPipe.transform(
+        this.articles,
+        this.searchText,
+      //   this.searchTags,
+      );
+      this.length = Math.ceil(searchedItems.length / this.itemsPerPage);
+      console.log(this.length);
+      this.index = 0;
+    }
+
+    goToPage(index: number): void {
+      this.index = index;
     }
 }

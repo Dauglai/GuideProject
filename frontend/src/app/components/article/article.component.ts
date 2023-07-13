@@ -6,6 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./article.component.css']
 })
 export class ArticleComponent {
-    @Input()
     public article?: any;
 }
