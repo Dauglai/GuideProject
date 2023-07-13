@@ -41,7 +41,7 @@ class Course(models.Model):
         'Номер курса',
         default=1,
         validators=[
-            MaxValueValidator(4),
+            MaxValueValidator(5),
             MinValueValidator(1)
         ])
 
