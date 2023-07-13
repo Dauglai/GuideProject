@@ -50,6 +50,7 @@ class Course(models.Model):
 
 
 class Review(models.Model):
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
     overall_score = models.PositiveIntegerField(
         'Общая оценка',
         default=1,
@@ -79,7 +80,6 @@ class Review(models.Model):
             MinValueValidator(1)
         ])
     explanation = models.TextField('Развернутая оценка', max_length=1000, null=True, blank=True)
-    course = models.ForeignKey('Course', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.course.name

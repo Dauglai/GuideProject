@@ -4,17 +4,26 @@
     <div class="dialog__container_outer">
       <div class="dialog__container_inner">
         <form [formGroup]="reviewForm" novalidate (ngSubmit)='submit()'>
-          <label class="adding__label">Название курса</label>
+          <!-- <label class="adding__label">Название курса</label>
           <tui-input tuiTextfieldSize="l" class="adding__input" tuiTextfieldSize="s"
                      [tuiTextfieldLabelOutside]="true" formControlName="course">
             Информационные технологии и сервисы
             <input type="text" name="course" formControlName="course" tuiTextfield/>
-          </tui-input>
-  
-          <label class="adding__label">Развернутый отзыв</label>
+          </tui-input> -->
+          <tui-combo-box
+              class="b-form" 
+              formControlName="course" [tuiTextfieldLabelOutside]="true" tuiTextfieldSize="s"
+          >
+              Выберите название курса
+              <input tuiTextfield/>
+              <tui-data-list-wrapper *tuiDataList
+                  [items]="coursesName | tuiFilterByInput"
+              ></tui-data-list-wrapper>
+          </tui-combo-box>
+          <label class="adding__label"></label>
           <tui-input tuiTextfieldSize="l" class="adding__input" tuiTextfieldSize="s"
                       [tuiTextfieldLabelOutside]="true" formControlName="explanation">
-            Отличный курс
+            Развернутый отзыв
             <input type="text" name="explanation" formControlName="explanation" tuiTextfield/>
           </tui-input>
           
@@ -36,12 +45,14 @@
             </tui-input>
           </div>
   
-          <!-- <label class="adding__label">Польза от предмета</label>
-          <tui-input tuiTextfieldSize="l" class="adding__input" tuiTextfieldSize="s"
-                     [tuiTextfieldLabelOutside]="true" formControlName="benefit">
-            5
-            <input type="number" name="benefit" formControlName="benefit" tuiTextfield/>
-          </tui-input> -->
+          <div class="numeric-field">
+            <label class="adding__label">Польза от предмета</label>
+            <tui-input tuiTextfieldSize="l" class="numeric-field-adding__input" tuiTextfieldSize="s"
+                      [tuiTextfieldLabelOutside]="true" formControlName="benefit">
+              5
+              <input type="number" name="benefit" formControlName="benefit" tuiTextfield/>
+            </tui-input>
+          </div>
           
           <div class="numeric-field">
             <label class="adding__label">Общедоступность курса</label>

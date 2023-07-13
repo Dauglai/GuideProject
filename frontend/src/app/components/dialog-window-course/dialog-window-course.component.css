@@ -43,7 +43,7 @@
   
   .dialog__title {
     font-weight: 500;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 20px;
   
     border-left: 4px solid #526ED3;
@@ -53,12 +53,24 @@
     width: 100%;
   }
   
-  .dialog__form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .main-info {
+    display: grid;
+    grid-template-columns: 25% 25%;
+
+    font-size: 12px;
   }
-  
+
+  .main-info__field {
+  }
+
+  .additional-estimates {
+    display: grid;
+    grid-template-columns: 25% 25% 30%;
+    margin-top: 20px;
+
+    font-size: 12px;
+  }
+
   .dialog__buttons {
     position: relative;
     margin-top: auto;

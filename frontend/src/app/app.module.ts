@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; 
 import { BrowserModule } from '@angular/platform-browser';
 import {ReactiveFormsModule} from '@angular/forms';
-import {TuiInputModule} from '@taiga-ui/kit';
+import {TuiComboBoxModule, TuiFilterByInputPipe, TuiFilterByInputPipeModule, TuiInputModule} from '@taiga-ui/kit';
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './components/main/main.component';
@@ -30,6 +30,7 @@ import { DialogWindowAddReviewComponent } from './components/dialog-window-add-r
 import { DialogWindowCourseComponent } from './components/dialog-window-course/dialog-window-course.component';
 import { PaginationPipe } from './pipes/pagination.pipe';
 import { TextRestrictionPipe } from './text-restriction.pipe';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 // import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll';
 
@@ -89,8 +90,14 @@ const routes: Routes = [
     TuiPaginationModule,
     TuiLabelModule,
     TuiTextfieldControllerModule,
+    TuiComboBoxModule,
+    TuiDataListModule,
+    TuiDataListWrapperModule,
+    ScrollingModule, 
+    TuiFilterByInputPipeModule
 ],
-  providers: [{provide: TUI_SANITIZER, useClass: NgDompurifySanitizer}, FilterPipe, SearchTeacherPipe],
+  providers: [{provide: TUI_SANITIZER, useClass: NgDompurifySanitizer}, FilterPipe, SearchTeacherPipe,
+     TuiFilterByInputPipe,],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

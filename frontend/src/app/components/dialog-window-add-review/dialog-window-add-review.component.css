@@ -32,12 +32,12 @@
   height: var(--height-dialog-window);
 
   min-width: 340px;
-  min-height: 330px;
+  min-height: 400px;
 
   display: flex;
   flex-direction: column;
   /* padding: 40px 60px 40px 60px; */
-  padding: 40px 60px 40px 60px;
+  padding: 10% 60px 10% 60px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   z-index: 1000;
 }
@@ -72,13 +72,14 @@
 
 .numeric-field {
   display: flex;
+  font-size: 12px;
   justify-content: space-between;
   /* align-items: center; */
 }
 
 .numeric-field-adding__input {
   margin-top: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   width: 30%;
 }
 

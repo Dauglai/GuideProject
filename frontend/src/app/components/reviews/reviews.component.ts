@@ -6,7 +6,7 @@ import { FormControl } from '@angular/forms';
 @Component({
   selector: 'app-reviews',
   templateUrl: './reviews.component.html',
-  styleUrls: ['./reviews.component.css']
+  styleUrls: ['./reviews.component.css'],
 })
 export class ReviewsComponent implements OnInit {
   protected teachers: any[] = [];
@@ -20,51 +20,13 @@ export class ReviewsComponent implements OnInit {
 
   public isOpenCourse = false;
   public isOpenFromReview = false;
+
   public course = {};
+  protected courses: any[] = [] 
 
-  protected courses: any[] = [
-    {name: 'Основы проектной деятельности', is_online: true, description: 'text1', difficulty: 3,
-  course_number: 1},
-    {name: 'Информационные технологии и сервисы', is_online: true, description: 'text2', difficulty: 5,
-  course_number: 1},
-    {name: 'Основы проектной деятельности', is_online: true, description: 'text1', difficulty: 3,
-  course_number: 1},
-    {name: 'Информационные технологии и сервисы', is_online: true, description: 'text2', difficulty: 5,
-  course_number: 1},
-    {name: 'Основы проектной деятельности', is_online: true, description: 'text1', difficulty: 3,
-  course_number: 1},
-    {name: 'Информационные технологии и сервисы', is_online: true, description: 'text2', difficulty: 5,
-  course_number: 1},
-    {name: 'Основы проектной деятельности', is_online: true, description: 'text1', difficulty: 3,
-  course_number: 1},
-    {name: 'Информационные технологии и сервисы', is_online: true, description: 'text2', difficulty: 5,
-  course_number: 1},
-    {name: 'Основы проектной деятельности', is_online: true, description: 'text1', difficulty: 3,
-  course_number: 1},
-    {name: 'Информационные технологии и сервисы', is_online: true, description: 'text2', difficulty: 5,
-  course_number: 1},
-    {name: 'Основы проектной деятельности', is_online: true, description: 'text1', difficulty: 3,
-  course_number: 1},
-    {name: 'Информационные технологии и сервисы', is_online: true, description: 'text2', difficulty: 5,
-  course_number: 1},
-  {name: 'Основы проектной деятельности', is_online: true, description: 'text1', difficulty: 3,
-  course_number: 1},
-    {name: 'Информационные технологии и сервисы', is_online: true, description: 'text2', difficulty: 5,
-  course_number: 1},
-    {name: 'Основы проектной деятельности', is_online: true, description: 'text1', difficulty: 3,
-  course_number: 1},
-    {name: 'Информационные технологии и сервисы', is_online: true, description: 'text2', difficulty: 5,
-  course_number: 1},
-  ] 
+  items = ['-', '1', '2', '3', '4'];
 
-  items = [
-      '-',
-      '1',
-      '2',
-      '3',
-      '4',
-  ];
-
+  readonly testValue = new FormControl(null);
   courseNumber = new FormControl();
 
   ngOnInit(): void {

@@ -3,11 +3,10 @@ from .models import Review, Teacher, Course
 
 
 class ReviewSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Review
         fields = '__all__'
-        depth = 2
+        # depth = 2
 
 
 class TeacherSerializer(serializers.ModelSerializer):

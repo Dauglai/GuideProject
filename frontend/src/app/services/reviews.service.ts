@@ -17,6 +17,13 @@ export class ReviewsService {
     return this.http.get<any[]>(this.apiReviews);
   }
 
+  postReview(overall_score: number, interest: number, benefit: number, understanding: number, course: number ): Observable<any> {
+    const body = {
+      overall_score: overall_score, interest: interest, benefit: benefit, understanding: understanding, course: course
+    }
+    return this.http.post(this.apiReviews, body);
+  }
+
   getCourses(): Observable<any[]> {
     return this.http.get<any[]>(this.apiCourses);
   }

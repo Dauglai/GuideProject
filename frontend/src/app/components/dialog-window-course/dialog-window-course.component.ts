@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter, Input, OnInit } from '@angular/core';
+import { ReviewsService } from 'src/app/services/reviews.service';
 
 @Component({
   selector: 'app-dialog-window-course',

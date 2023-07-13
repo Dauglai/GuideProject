@@ -33,4 +33,4 @@
   </div>    
 </div>
 <app-dialog-window-course *ngIf="isOpenCourse" (isOpen)="manageDialogCourse($event)" [course]="course"></app-dialog-window-course>
-<app-dialog-window-add-review *ngIf="isOpenFromReview" (isOpen)="manageDialogFormReview($event)"></app-dialog-window-add-review>
+<app-dialog-window-add-review *ngIf="isOpenFromReview" [courses]="courses" (isOpen)="manageDialogFormReview($event)"></app-dialog-window-add-review>
