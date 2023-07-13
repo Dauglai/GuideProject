@@ -9,7 +9,7 @@
   <div class="content-wrapper search-section">
     <div class="search-section__container">
       <app-search (searchEvent$)="applySearch($event)"></app-search>
-      <tui-select  tuiTextfieldSize="m" class="tui-space_vertical-4" [formControl]="courseNumber" class="select-course">
+      <tui-select  tuiTextfieldSize="l" class="tui-space_vertical-4" [formControl]="courseNumber" class="select-course">
         Курс
         <input tuiTextfield placeholder="Выберите курс"/>
         <tui-data-list-wrapper *tuiDataList [items]="items"></tui-data-list-wrapper>
@@ -21,11 +21,10 @@
     </button>
   </div>
   <div class="content-wrapper courses-section">
-    <div *ngFor="let course of courses | searchTeacher:searchText:courseNumber | pagination:itemsPerPage:index">
-      <!-- name: {{course.name}} is_online: {{course.is_online}} description: {{course.description}} difficulty: {{course.difficulty}} -->
+    <div *ngFor="let course of courses | searchTeacher:searchText:searchNumberCourse | pagination:itemsPerPage:index">
       <div class="course" (click)="selectCourse(course)">
         <h4 class="course__title">{{course.name}}</h4>
-        <div class="course__number">{{course.course_number}} курс</div>
+        <div class="course__number">{{course.number_course}} курс</div>
       </div>
     </div>
   </div>  

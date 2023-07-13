@@ -5,3 +5,17 @@
     </div>
   </div>
 </div>
+<div class="content-wrapper article-section">
+  <div class="article__container">
+    <h3 class="article__heading">{{article.name}}</h3>
+    <p class="article__text" [innerHTML]="article.text | saveHtml"></p>
+  </div>
+  <div class="content-wrapper btn-container">
+    <button tuiButton type="button" appearance="outline"
+    class="tui-space_right-3 tui-space_bottom-3 btn-close" size="m"
+    routerLink="/articles">
+    Закрыть
+    </button>
+  </div>
+</div>
+

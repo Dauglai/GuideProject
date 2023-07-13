@@ -12,6 +12,7 @@ export class ReviewsComponent implements OnInit {
   protected teachers: any[] = [];
   protected reviews: any[] = [];
   protected searchText: string = '';
+  protected searchNumberCourse: string = '';
 
   protected length: number = 1;
   protected index: number = 0;
@@ -68,10 +69,20 @@ export class ReviewsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getReviews();
-    this.updatePaginationPages();
+    this.getCourses();
+    this.onChangesTopic();
   }
 
   constructor( private searchTeacher: SearchTeacherPipe, private reviewsService: ReviewsService ){}
+
+  onChangesTopic() {
+    this.courseNumber.valueChanges.subscribe(
+      (value: any) => {
+        this.searchNumberCourse = value;
+        this.updatePaginationPages();
+      }
+    )
+  }
 
   selectCourse(course: any) {    
     this.course = course;
@@ -97,8 +108,20 @@ export class ReviewsComponent implements OnInit {
   getReviews(): void {
     this.reviewsService.getReviews().subscribe(
       (data: any) => {
-        console.log(data);
         this.reviews = data;
+        this.updatePaginationPages();
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    )
+  }
+
+  getCourses(): void {
+    this.reviewsService.getCourses().subscribe(
+      (data: any) => {
+        console.log(data);
+        this.courses = data;
         this.updatePaginationPages();
       },
       (error: any) => {
@@ -116,8 +139,7 @@ export class ReviewsComponent implements OnInit {
     const searchedItems: any[] = this.searchTeacher.transform(
       this.courses,
       this.searchText,
-      this.courseNumber,
-    //   this.searchTags,
+      this.searchNumberCourse,
     );
     this.length = Math.ceil(searchedItems.length / this.itemsPerPage);
     this.index = 0;

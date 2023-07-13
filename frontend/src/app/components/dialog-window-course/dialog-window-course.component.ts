@@ -1,17 +1,21 @@
-import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { Component, Output, EventEmitter, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-dialog-window-course',
   templateUrl: './dialog-window-course.component.html',
   styleUrls: ['./dialog-window-course.component.css']
 })
-export class DialogWindowCourseComponent {
+export class DialogWindowCourseComponent implements OnInit {
   @Output() protected isOpen: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Input() public course: any = {};
 
   constructor() {  }
 
+  ngOnInit(): void {
+    console.log(this.course);
+  }
+
   protected manageDialog() {
-      this.isOpen.emit(false);
+    this.isOpen.emit(false);
   }
 }

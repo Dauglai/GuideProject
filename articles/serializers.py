@@ -11,7 +11,7 @@ class ArticleSerializer(serializers.ModelSerializer):
 
 class TopicSerializer(serializers.ModelSerializer):
 
-    articles = ArticleSerializer(source="article_set", many=True, read_only=True)
+    # articles = ArticleSerializer(source="article_set", many=True, read_only=True)
     class Meta:
         model = Topic
         fields = '__all__'

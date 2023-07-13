@@ -9,12 +9,18 @@
   <div class="main-articles">
     <div class="content-wrapper main-articles-section">
       <app-search (searchEvent$)="applySearch($event)"></app-search>
+      <tui-select tuiTextfieldSize="l" class="tui-space_vertical-4" [formControl]="topic" [tuiTextfieldLabelOutside]="true" class="main-articles-section__select">
+        Тема статьи 
+        <input tuiTextfield placeholder="Выберите тему статьи"/>
+        <tui-data-list-wrapper *tuiDataList [items]="items"></tui-data-list-wrapper>
+      </tui-select>
     </div>
     <div class="content-wrapper articles-section">
-      <ng-container *ngFor="let article of articles | filter:searchText | pagination:itemsPerPage:index">
+      <ng-container *ngFor="let article of articles | filter:searchText:searchTopic | pagination:itemsPerPage:index">
         <div class="article" (click)="selectArticle(article)">
-          <h4 class="article__title">{{article.name}}</h4>
-          <p class="article__text" [innerHTML]="article.text | saveHtml"></p>
+          <h4 class="article__title">{{article.name | slice:0:100}}</h4>
+          <p class="article__text" [innerHTML]="article.text| slice:0:450 | saveHtml"></p>
+          <p class="article__topic">#{{article.topic.name}}</p>
         </div>
       </ng-container>
     </div>

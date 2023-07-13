@@ -66,10 +66,12 @@
   color:black;
   background-color: white;
   box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.15);
-  /* width: 100%; */
 
-  padding: 20px 35px 0 35px;
-  height: 200px;
+  padding: 0 15px 20px 15px;
+  min-height: 200px;
+  min-width: 200px;
+  width: 30vw;
+  max-width: 300px;
   border-radius: 7px;
 
   display: flex;
@@ -80,18 +82,19 @@
 
 .course__title {
   min-width: 150px;
-  width: 15vw;
-  max-width: 250px;
+  /* width: 15vw; */
+  /* max-width: 250px; */
   font-size: 18px;
   font-weight: 200;
-  margin-bottom: 20%;
+  /* margin-bottom: 20%; */
 }
 
 .course__number {
-  /* align-items: end; */
-  /* justify-self: end; */
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
   font-size: 14px;
-  text-align: end;
+  /* text-align: end; */
 }
 
 .pagination {

@@ -12,6 +12,5 @@ export class SearchComponent {
 
   searchText() {
     this.searchEvent$.next(this.value);
-    console.log(this.value);
   }
 }

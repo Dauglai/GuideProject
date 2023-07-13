@@ -18,3 +18,11 @@ body, html{
   position: relative;
   max-width: var(--content-width);
 }
+
+.start-p {
+  margin-bottom: 30px;
+}
+
+.p {
+  margin: 30px 0 30px;
+}

@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-m5#eq(9$mp+_6-=fl8_thnkeb5(z@t8&u8h$p3s_6+6t54gly6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'http://localhost:4200']
+# ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'http://localhost:4200']
 ALLOWED_HOSTS = ['*']
 
 
@@ -45,6 +45,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -52,12 +55,14 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
-    "corsheaders.middleware.CorsMiddleware",
-    "django.middleware.common.CommonMiddleware",
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+# CORS_ALLOWED_ORIGINS = [
+#     'http://localhost:4200',
+#     "http://127.0.0.1:8000",
+# ]
 
 ROOT_URLCONF = 'GuideProject.urls'
 

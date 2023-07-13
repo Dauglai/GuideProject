@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(articles: any[], searchText: string): any[] {
+  transform(articles: any[], searchText: string, searchTopic: string): any[] {
     if (!articles){
       return [];
     }
@@ -16,7 +16,13 @@ export class FilterPipe implements PipeTransform {
         return `${article.name}`.toLocaleLowerCase().includes(searchText);
       });
     }   
-    console.log(result); 
+    if (searchTopic && !(searchTopic === '-')){
+      searchTopic = searchTopic.toLocaleLowerCase();
+      result = result.filter((article: any) =>{
+        return `${article.topic.name}`.toLocaleLowerCase().includes(searchTopic);
+      });
+    } 
+    // console.log(result); 
     return result;
   }
 }

@@ -16,7 +16,7 @@ class Course(models.Model):
     difficulty = models.PositiveIntegerField('Сложность')
     teacher = models.ManyToManyField('Teacher')
     number_course = models.PositiveIntegerField(
-        'Общая оценка',
+        'Номер курса',
         default=1,
         validators=[
             MaxValueValidator(4),
