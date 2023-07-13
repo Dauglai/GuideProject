@@ -9,17 +9,39 @@ class Teacher(models.Model):
         return self.full_name
 
 
+class FormEducation(models.Model):
+    form = models.CharField('Форма обучения', max_length=20)
+
+    def __str__(self):
+        return self.form
+
+
+class Discipline(models.Model):
+    name = models.CharField('Название дисциплины', max_length=100)
+    is_exam = models.BooleanField(default=True)
+    semester = models.PositiveIntegerField(
+        'Семестр',
+        default=1,
+        validators=[
+            MaxValueValidator(10),
+            MinValueValidator(1)
+        ])
+
+    def __str__(self):
+        return self.name
+
+
 class Course(models.Model):
     name = models.CharField('Название курса', max_length=100)
-    is_online = models.BooleanField(default=True)
-    description = models.TextField(max_length=1000, null=True, blank=True)
-    difficulty = models.PositiveIntegerField('Сложность')
-    teacher = models.ManyToManyField('Teacher')
+    form_education = models.ForeignKey('FormEducation', on_delete=models.CASCADE, null=True)
+    description = models.TextField(null=True, blank=True)
+    teacher = models.ManyToManyField('Teacher', null=True)
+    discipline = models.ForeignKey('Discipline', on_delete=models.CASCADE, null=True)
     number_course = models.PositiveIntegerField(
         'Номер курса',
         default=1,
         validators=[
-            MaxValueValidator(4),
+            MaxValueValidator(5),
             MinValueValidator(1)
         ])
 
