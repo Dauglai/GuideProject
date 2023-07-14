@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-m5#eq(9$mp+_6-=fl8_thnkeb5(z@t8&u8h$p3s_6+6t54gly6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'http://localhost:4200']
 ALLOWED_HOSTS = ['*']
@@ -85,7 +85,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'GuideProject.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -132,6 +131,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+# STATIC_ROOT = 'static/'
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    '/static/frontend/assets',
+    '/static/frontend',
+]
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = '/static/frontend/assets'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
