@@ -1,7 +1,13 @@
+from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 import vk_api
 
+def index(request):
+    return render(request, "index.html")
+
+def index_id(request, id):
+    return render(request, "index.html")
 
 class VKNewsAPIView(APIView):
 
