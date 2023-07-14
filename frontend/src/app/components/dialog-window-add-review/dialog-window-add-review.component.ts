@@ -21,23 +21,29 @@ export class DialogWindowAddReviewComponent implements OnInit {
       'course': new FormControl('', [Validators.required]),
       'explanation': new FormControl(),
 
-      'overall_score': new FormControl(1, [Validators.required]),
-      'interest': new FormControl(1, [Validators.required]),
-      'benefit': new FormControl(1, [Validators.required]),
-      'understanding': new FormControl(1, [Validators.required]),
+      'overall_score': new FormControl(null, [Validators.required]),
+      'interest': new FormControl(null, [Validators.required]),
+      'benefit': new FormControl(null, [Validators.required]),
+      'understanding': new FormControl(null, [Validators.required]),
     });
-    console.log(this.courses);
     this.courses.forEach((el: any) => {
-      this.coursesName.push(el.name)
-      console.log(el.name);
+      this.coursesName.push(el.name);
     })
   }
 
   protected submit() {
-    const form: {} = this.reviewForm.getRawValue()
-    console.log(form);
-    this.reviewsService.postReview(1, 1, 1, 1, 1 ).subscribe(
-      data => console.log(data)
+    const form: any = this.reviewForm.getRawValue();
+    let idCourse = 0;
+    this.courses.forEach((course: any) => {
+      if(course.name == form.course) idCourse = course.id 
+    });
+    this.reviewsService
+    .postReview(form.overall_score, form.explanation, form.interest, form.benefit, form.understanding, idCourse )
+    .subscribe(
+      data => {
+        console.log(data)
+        this.manageDialog();
+      }
     )
   }
 

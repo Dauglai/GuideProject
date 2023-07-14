@@ -9,10 +9,8 @@ import { ArticlesService } from 'src/app/services/articles.service';
   styleUrls: ['./article.component.css']
 })
 export class ArticleComponent implements OnInit{
-  // private idArticle: number = 0;
   public article?: any;
-  // private routeSubscription: Subscription;
-
+  
   constructor(private route: ActivatedRoute, private articlesService: ArticlesService) {}
 
   ngOnInit(){

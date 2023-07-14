@@ -78,6 +78,9 @@
   flex-direction: column;
   justify-content: center;
   text-align: center;
+
+  user-select: none;
+  cursor: pointer;
 }
 
 .course__title {

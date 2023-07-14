@@ -65,6 +65,7 @@ export class ReviewsComponent implements OnInit {
 
   protected manageDialogFormReview(isOpen: boolean) {
     this.isOpenFromReview = false;
+    this.getCourses();
   }
 
   getReviews(): void {

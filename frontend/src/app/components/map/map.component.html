@@ -6,27 +6,82 @@
     </div>
   </div>
 </div>
-<div class="content-wrapper ya-map">
-  <div class="content">
-    <h3 class="content__heading">Интересные места</h3>
-    <p class="content__text">wduwhduwhduw</p>
-  </div>
-  <div class="container-map">
-    <ya-map [center]="[56.844014, 60.653987]" [zoom]="14">
-      <ya-placemark [geometry]="[56.844014, 60.653987]"></ya-placemark>
-      <ya-placemark [geometry]="[56.840768, 60.650797]"></ya-placemark>
-    </ya-map>
-  </div>
-</div>
-<div class="content-wrapper">
-  <div class="content">
-    <h3 class="content__heading">Корпуса</h3>
-    <p class="content__text">wduwhduwhduw</p>
-  </div>
-</div>
-<div class="content-wrapper">
-  <div class="content">
-    <h3 class="content__heading">Общежития</h3>
-    <p class="content__text">wduwhduwhduw</p>
-  </div>
-</div>
+<!-- <tui-accordion class="container"> -->
+  <tui-accordion-item (click)="insertScript(mapUniversities, '.container-map__universities')" 
+  class="accordion-item">
+    <div class="accordion__heading">Институты</div>
+      <ng-template tuiAccordionItemContent >
+        <div class="content-wrapper ya-map">
+          <div class="content">
+            <h3 class="content__heading">Карта корпусов</h3>
+            <div class="content__text">Альма-матер всех студентов УрФУ – ГУК (Главный учебный корпус), находится он на Мира, 19. Памятник архитектуры федерального значения. Одно из самых красивых зданий Екатеринбурга. В здании располагается актовый зал, паркет, административные помещения.
+              <p class="start-p">В ГУКе учатся студенты ВШЭМ (правое крыло, если стоять лицом к зданию) и ИТОО. В корпусе ВШЭМа (или по-другому инжэка) пять этажей, есть буфет. В этом же корпусе располагается и музей УрФУ.</p>
+              
+              <p class="p">Рядом с ГУКом (на Мира, 17) расположился корпус Института строительства и архитектуры. Попасть сюда можно через главный вход или по подземному переходу из главного корпуса. Лестничные пролеты здания украшены цветными изображениями. Можно даже устроить фотосессию, если правильно выставить свет.</p>
+              
+              <p class="p">По адресу Мира, 28 располагается корпус ХТИ и ИНМТ. Четырехэтажное здание, в которое также можно попасть, перейдя по подземному переходу из ГУКа. На здании можно увидеть несколько мемориальных досок. А вблизи будущих металлургов и химиков учатся будущие радисты — ИРИТ-РтФ находится по адресу Мира, 32.</p>
+              
+              <p class="p">Еще один сосед ГУКа – корпус ФТИ на Мира, 21. Попасть сюда можно также по переходу. С этим зданием даже связано несколько легенд, потому что физико-технологический факультет раньше был чуть ли не секретным. Построен корпус в 1956 году в классическом стиле. Огромные колонны сразу привлекают внимание любопытных.</p>
+              
+              <p class="p">Уже на другой улице, но также вблизи ГУКа расположился корпус Уральского энергетического института. В простонародье – ТЭФ или электрофак на Софьи Ковалевской, 5. Если ходить на все пары, то на первый, то на седьмой этаж – можно порядочно похудеть. Для ленивых существует лифт. Но мы же за ЗОЖ.</p>
+              
+              <p class="p">На Мира, 29 учатся студенты ИФКСиМП. Небольшое, но уютное здание, примыкающие к манежу УрФУ и стадиону. Сразу понятно, где учатся спортсмены и активисты. Посидел на парах – пошел на тренировку.</p>
+            </div>
+          </div>
+          <div class="container-map container-map__universities">
+            <!-- <ya-map [center]="[56.844014, 60.653987]" [zoom]="14">
+              <ya-placemark [geometry]="[56.844014, 60.653987]"></ya-placemark>
+              <ya-placemark [geometry]="[56.840768, 60.650797]"></ya-placemark>
+            </ya-map> -->
+          </div>
+        </div>
+      </ng-template>
+  </tui-accordion-item>
+  <tui-accordion-item (click)="insertScript(mapDormitories, '.container-map__dormitories')"
+  class="accordion-item">
+    <div class="accordion__heading">Общежития</div>
+      <ng-template tuiAccordionItemContent>
+          <div #content>
+            <div class="content-wrapper ya-map">
+              <div class="content">
+                <h3 class="content__heading">Общежития</h3>
+                <p class="content__text"> На территории студгородка действуют:
+
+                  16 общежитий;
+                  14 спортивных площадок;
+                  Паспортный отдел;
+                  Комбинат питания (столовые, закусочные, буфеты, кофейни);
+                  Медико-санитарная часть УрФУ;
+                  Центр инклюзивного образования.
+                </p>
+              </div>
+              <div class="container-map container-map__dormitories">
+              </div>
+            </div>
+          </div>
+      </ng-template>
+  </tui-accordion-item>
+  <tui-accordion-item (click)="insertScript(mapCafe, '.container-map__cafe')" 
+  class="accordion-item">
+    <div class="accordion__heading">Кафе</div>
+      <ng-template tuiAccordionItemContent>
+        <div class="content-wrapper ya-map">
+          <div class="content">
+            <h3 class="content__heading">Пункты общественного питания</h3>
+            <div class="content__text">
+              Комбинат питания УрФУ — одно из структурных подразделений университета. Численность персонала — 50 человек. Количество посадочных мест — 1 405. Для студентов и сотрудников университета работают 8 столовых, 2 закусочных и 2 буфета, действует стол заказов по электронной почте kpurfu@mail.ru. Комбинат питания ежедневно задействован в жизни университета, организует обслуживания мероприятий различных уровней (международных, всероссийских и т. п.).
+
+              <p class="p">Коллектив обеспечивает студентов, сотрудников и гостей университета качественным и доступным питанием.</p>
+
+              <p class="p">В комбинате питания представлен широкий ассортимент блюд, кондитерских изделий и выпечки разной ценовой категории: салаты и холодные закуски от 35 до 70 рублей, первые блюда от 35 до 55 рублей, вторые блюда 65 до 130 рублей, десерты и выпечка от 30 до 120 рублей. В течение рабочего дня комбинат питания обслуживает более 4 000 человек.</p>
+            </div>
+          </div>
+          <div class="container-map container-map__cafe">
+            
+          </div>
+        </div>
+      </ng-template>
+  </tui-accordion-item>
+<!-- </tui-accordion> -->
+
+

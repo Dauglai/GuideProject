@@ -24,7 +24,7 @@
           <tui-input tuiTextfieldSize="l" class="adding__input" tuiTextfieldSize="s"
                       [tuiTextfieldLabelOutside]="true" formControlName="explanation">
             Развернутый отзыв
-            <input type="text" name="explanation" formControlName="explanation" tuiTextfield/>
+            <input type="text" maxlength="1000" minlength="0" name="explanation" formControlName="explanation" tuiTextfield/>
           </tui-input>
           
           <div class="numeric-field">
@@ -32,7 +32,7 @@
             <tui-input tuiTextfieldSize="l" class="numeric-field-adding__input" tuiTextfieldSize="s"
                       [tuiTextfieldLabelOutside]="true" formControlName="overall_score">
               4
-              <input type="number" name="overall_score" formControlName="overall_score" tuiTextfield/>
+              <input type="number" min="1" max="5" name="overall_score" formControlName="overall_score" tuiTextfield/>
             </tui-input>
           </div>
           
@@ -41,7 +41,7 @@
             <tui-input tuiTextfieldSize="l" class="numeric-field-adding__input" tuiTextfieldSize="s"
                       [tuiTextfieldLabelOutside]="true" formControlName="interest">
               4
-              <input type="number" name="interest" formControlName="interest" tuiTextfield/>
+              <input type="number" min="1" max="5" name="interest" formControlName="interest" tuiTextfield/>
             </tui-input>
           </div>
   
@@ -50,7 +50,7 @@
             <tui-input tuiTextfieldSize="l" class="numeric-field-adding__input" tuiTextfieldSize="s"
                       [tuiTextfieldLabelOutside]="true" formControlName="benefit">
               5
-              <input type="number" name="benefit" formControlName="benefit" tuiTextfield/>
+              <input type="number" min="1" max="5" name="benefit" formControlName="benefit" tuiTextfield/>
             </tui-input>
           </div>
           
@@ -59,7 +59,7 @@
             <tui-input tuiTextfieldSize="l" class="numeric-field-adding__input" tuiTextfieldSize="s"
                       [tuiTextfieldLabelOutside]="true" formControlName="understanding">
               5
-              <input type="number" name="understanding" formControlName="understanding" tuiTextfield/>
+              <input type="number" min="1" max="5" name="understanding" formControlName="understanding" tuiTextfield/>
             </tui-input>
           </div>
         </form>

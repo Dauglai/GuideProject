@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; 
 import { BrowserModule } from '@angular/platform-browser';
 import {ReactiveFormsModule} from '@angular/forms';
-import {TuiComboBoxModule, TuiFilterByInputPipe, TuiFilterByInputPipeModule, TuiInputModule} from '@taiga-ui/kit';
+import {TuiAccordionModule, TuiComboBoxModule, TuiFilterByInputPipe, TuiFilterByInputPipeModule, TuiInputModule} from '@taiga-ui/kit';
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './components/main/main.component';
@@ -31,8 +31,7 @@ import { DialogWindowCourseComponent } from './components/dialog-window-course/d
 import { PaginationPipe } from './pipes/pagination.pipe';
 import { TextRestrictionPipe } from './text-restriction.pipe';
 import { ScrollingModule } from '@angular/cdk/scrolling';
-
-// import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll';
+import { CourseComponent } from './components/course/course.component';
 
 const mapConfig: YaConfig = {
   apikey: 'f0383e10-bb41-4879-a742-b5911e220653',
@@ -42,6 +41,7 @@ const mapConfig: YaConfig = {
 const routes: Routes = [
   {path: 'main', component: MainComponent},
   {path: 'reviews', component: ReviewsComponent},
+  {path: 'reviews/course/:id', component: CourseComponent},
   {path: 'map', component: MapComponent},
   {path: 'articles', component: ArticlesComponent, children: [
     // {path: 'article/:id', component: ArticleComponent}
@@ -70,6 +70,7 @@ const routes: Routes = [
     DialogWindowCourseComponent,
     PaginationPipe,
     TextRestrictionPipe,
+    CourseComponent,
   ],
   imports: [
     BrowserModule,
@@ -94,7 +95,8 @@ const routes: Routes = [
     TuiDataListModule,
     TuiDataListWrapperModule,
     ScrollingModule, 
-    TuiFilterByInputPipeModule
+    TuiFilterByInputPipeModule,
+    TuiAccordionModule,
 ],
   providers: [{provide: TUI_SANITIZER, useClass: NgDompurifySanitizer}, FilterPipe, SearchTeacherPipe,
      TuiFilterByInputPipe,],

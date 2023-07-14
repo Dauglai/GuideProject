@@ -9,6 +9,14 @@
 	font-size: 28px;
 }
 
+.accordion-item {
+  overflow: auto;
+}
+
+.accordion__heading {
+  text-align: center;
+}
+
 .ya-map {
   position: relative;
   padding-bottom: 75px;
@@ -20,6 +28,7 @@
 
 .content {
   padding-top: 50px;
+  width: 50%;
 }
 
 .content__heading {

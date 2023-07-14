@@ -1,0 +1,42 @@
+<app-header></app-header>
+<div class="popular-articles">
+  <div class="content-wrapper">
+    <div class="popular-articles-section">
+    </div>
+  </div>
+</div>
+<div class="content-wrapper article-section">
+  <div class="article__container">
+    <h3 class="article__heading">{{course.name}}</h3>
+    <div class="article__text">
+      <div>Форма обучения: {{course.form_education.form}}</div>
+      <div>Наименование дисциплины: {{course.discipline.name}}</div>
+      <div *ngIf="course.discipline.is_exam">Форма контроля: Экзамен</div>
+      <div *ngIf="!course.discipline.is_exam">Форма контроля: Зачет</div>
+    </div>
+    <p class="article__text">{{course.description}}</p>
+    <div class="article__text">
+      <h3>Список преподавателей</h3>
+      <ul class="teacher-list" *ngFor="let teacher of course.teacher"><li>{{teacher.full_name}}</li></ul>
+    </div>
+  </div>
+  <div class="review__container">
+    <h3>Рецензии пользователей</h3>
+    <div class="review__explanation" *ngFor="let review of reviews">
+      <ul class="review__mark">
+        <li>Общая оценка: {{review.overall_score}}</li>
+        <li>Интерес к предмету: {{review.interest}}</li>
+        <li>Польза от предмета: {{review.benefit}}</li>
+        <li>Общедоступность курса: {{review.understanding}}</li>
+      </ul>
+      {{review.explanation}}
+    </div>
+  </div>
+  <div class="content-wrapper btn-container">
+    <button tuiButton type="button" appearance="outline"
+    class="tui-space_right-3 tui-space_bottom-3 btn-close" size="m"
+    routerLink="/reviews">
+    Закрыть
+    </button>
+  </div>
+</div>

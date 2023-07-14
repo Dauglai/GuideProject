@@ -5,22 +5,22 @@
       <div class="dialog__container_inner">
           <h2 class="dialog__title">{{course.name}}</h2>
           <div class="main-info">
-            <div><div class="main-info__field">12</div>Средняя оценка</div>
-            <div><div class="main-info__field">3</div>Количество отзывов</div>
+            <div><div class="main-info__field">{{averageMark}}</div>Средняя оценка</div>
+            <div><div class="main-info__field">{{countReview}}</div>Количество отзывов</div>
           </div>
           <div class="additional-estimates">
-            <div><div class="additional-estimates__field">12</div>Интерес к предмету</div>
-            <div><div class="additional-estimates__field">3</div>Польза от предмета</div>
-            <div><div class="additional-estimates__field">3</div>Общедоступность курса</div>
+            <div><div class="additional-estimates__field">{{averageInterest}}</div>Интерес к предмету</div>
+            <div><div class="additional-estimates__field">{{averageBenefit}}</div>Польза от предмета</div>
+            <div><div class="additional-estimates__field">{{averageUnderstanding}}</div>Общедоступность курса</div>
           </div>
-          <p></p>
           <div class="dialog__buttons">
-          <button tuiButton type="button" appearance="outline"
-                  class="tui-space_right-3 tui-space_bottom-3 dialog__cancel" size="m"
-                  (click)="manageDialog()">
-              <img src="">
-          </button>
+            <div class="btn-more" routerLink='/reviews/course/{{course.id}}'>Показать больше</div>
           </div>
+          <button tuiButton type="button" appearance="custom"
+                    class="tui-space_right-3 tui-space_bottom-3 dialog__cancel" size="m"
+                    (click)="manageDialog()">
+                <img src="../../../assets/img/minus.svg" class="dialog__cancel_img">
+            </button>
       </div>
       </div>
   </div>
